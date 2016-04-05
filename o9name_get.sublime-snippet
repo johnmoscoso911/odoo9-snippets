@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+@api.multi
+@api.depends('${1:name}', '${2:code}')
+def name_get(self):
+	result = []
+	for ${3:item} in self:
+		name = '%s [%s]' % (${3:item}.${1:name}, ${3:item}.${2:code})
+		result.append((${3:item}.id, name))
+	return result
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9name_get</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

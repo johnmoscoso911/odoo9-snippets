@@ -1,0 +1,54 @@
+<snippet>
+	<content><![CDATA[
+<!--FORM: ${2:Description}-->
+<record id="view_${1:class}_form" model="ir.ui.view">
+	<field name="name">${1/_/./g}.form</field>
+	<field name="model">${1/_/./g}</field>
+	<field name="arch" type="xml">
+		<form string="${2:Description}">
+			<!--header>
+				<button name="${8:button_name}" states="${9:state}" string="${10:button_label}" type="object" class="oe_highlight" groups="base.group_erp_manager" />
+				<field name="state" widget="statusbar" statusbar_colors="{'${11:other_state}': 'red'}" />
+			</header-->
+			<sheet>
+				<div class="oe_title">
+					<label for="${3:code}" class="oe_edit_only" />
+					<h1>
+						<field name="${3:code}" class="oe_inline" />
+					</h1>
+					<label for="name" class="oe_edit_only" />
+					<h2>
+						<field name="name" />
+					</h2>
+				</div>
+				<group>
+					<group>
+						<field name="${4:field_name}" />
+					</group>
+					<group>
+						<!--field name="${5:m2o_id}" options="{'no_open': True, 'no_create': True}" /-->
+					</group>
+				</group>
+				<notebook>
+					<page string="Description">
+						<group>
+							<field name="${6:description}" />
+						</group>
+					</page>
+					<!--page string="Notes">
+						<group>
+							<field name="${7:notes}" />
+						</group>
+					</page-->
+				</notebook>
+			</sheet>
+		</form>
+	</field>
+</record>
+<!--END FORM-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>formview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

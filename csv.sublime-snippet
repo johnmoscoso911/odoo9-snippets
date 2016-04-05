@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>csv</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>text.csv</scope> -->
+</snippet>

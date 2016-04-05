@@ -1,0 +1,20 @@
+<snippet>
+	<content><![CDATA[
+<!--LIST: ${2:Description}-->
+<record id="view_${1:class}_list" model="ir.ui.view">
+	<field name="name">${1/_/./g}.list</field>
+	<field name="model">${1/_/./g}</field>
+	<field name="arch" type="xml">
+		<tree string="${2:Description}">
+			<field name="name" />
+			<!--field name="state" invisible="1" /-->
+		</tree>
+	</field>
+</record>
+<!--END LIST-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>listview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

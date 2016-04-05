@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+@api.multi
+def write(self, values):
+	if values.get('${1:field}'):
+		values['${2:result}'] = '${3:value}'
+	return super(${4:ClassName}, self).write(values)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9write</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

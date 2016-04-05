@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+<!--SEARCH: ${2:Description}-->
+<record id="view_${1:class}_search" model="ir.ui.view">
+	<field name="name">${1/_/./g}.search</field>
+	<field name="model">${1/_/./g}</field>
+	<field name="arch" type="xml">
+		<search string="${2:Description}">
+			<field name="name" />
+			<!--separator orientation="vertical" /-->
+			<!--filter string="" domain="[('', '=', '')]" /-->
+			<!--filter name="today" string="Today" 
+				domain="[('date', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('date','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]" /-->
+			<group expand="0" string="Group By">
+				<!--filter string="" domain="" context="{'group_by':''}" /-->
+			</group>
+		</search>
+	</field>
+</record>
+<!--END SEARCH-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>searchview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

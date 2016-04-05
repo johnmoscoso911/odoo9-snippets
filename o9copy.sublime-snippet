@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+@api.one
+def copy(self, default=None):
+	default = dict(default or {})
+	default.update(
+		${1:name} = _('%s (copy)') % (self.${1:name} or ''),
+		${2:code} = _('%s (copy)') % (self.${2:code} or '')
+	)
+	return super(${3:ClassName}, self).copy(default)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9copy</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

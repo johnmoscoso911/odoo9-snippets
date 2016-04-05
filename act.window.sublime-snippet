@@ -1,0 +1,30 @@
+<snippet>
+	<content><![CDATA[
+<!--ACTION: ${3:Description}-->
+<record id="action_${1:class}_${2:form}" model="ir.actions.act_window">
+	<field name="name">${3:Description}</field>
+	<field name="res_model">${1/_/./g}</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">tree,form</field>
+	<!--field name="search_view_id" ref="view_${1:class}_search"/-->
+	<!--field name="view_id" ref="view_${1:class}_list"/-->
+	<!--field name="context">{'search_default_today': True}</field-->
+	<!--field name="domain">[]</field-->
+	<field name="help" type="html">
+		<p class="oe_view_nocontent_create">
+			Click to add an ${3/\u/\L$0/g}
+		</p><p>
+		</p>
+	</field>
+</record>
+<menuitem action="action_${1:class}_${2:form}"
+	id="menu_action_${1:class}_${2:form}"
+	parent="menu_${4:main}"
+	sequence="${5:10}" />
+<!--END ACTION + MENU-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>act_window</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

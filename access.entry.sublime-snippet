@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+access_${1:class}_${2:user},${1/_/./g} ${2/_/ /g},model_${1:class},${3:base.group_user},1,0,0,0
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>access_</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>text.csv</scope> -->
+</snippet>

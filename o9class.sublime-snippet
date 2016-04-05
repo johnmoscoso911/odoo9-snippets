@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+########## ########## ########## ########## ##########
+# ${3:description}
+########## ########## ########## ########## ##########
+class ${1:ClassName}(models.Model):
+	_name = '${2:class.name}'
+	_description = '${3:description}'
+
+	name = fields.Char(string='${4:Name}', size=${5:92}, required=True)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9class</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

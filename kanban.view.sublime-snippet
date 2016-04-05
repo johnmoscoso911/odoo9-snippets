@@ -1,0 +1,41 @@
+<snippet>
+	<content><![CDATA[
+<!--KANBAN: ${2:Description}-->
+<record id="view_${1:class}_kanban" model="ir.ui.view">
+	<field name="name">${1/_/./g}.kanban</field>
+	<field name="model">${1/_/./g}</field>
+	<field name="arch" type="xml">
+		<kanban class="o_res_partner_kanban">
+			<field name="name" />
+			<field name="image" />
+			<field name="${3:field}" />
+			<field name="${4:field}" />
+			<templates>
+				<t t-name="kanban-box">
+					<div class="oe_kanban_global_click o_res_partner_kanban">
+						<!--div class="o_kanban_tags_section" /-->
+						<div class="o_kanban_image">
+							<t t-if="record.image.value">
+								<img t-att-src="kanban_image('${1/_/./g}', 'image_small', record.id.value)" />
+							</t>
+						</div>
+						<div class="oe_kanban_details">
+							<strong class="oe_partner_heading"><field name="name" /></strong>
+							<ul>
+								<li t-if="record.${3:field}.raw_value" class="o_text_overflow"><field name="${3:field}" /></li>
+								<li t-if="record.${4:field}.raw_value" class="o_text_overflow"><field name="${4:field}" /></li>
+							</ul>
+						</div>
+					</div>
+				</t>
+			</templates>
+		</kanban>
+	</field>
+</record>
+<!--END KANBAN-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>kanbanview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

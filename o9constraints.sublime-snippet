@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+@api.one
+@api.constrains('${1:field}')
+def _check_${1:field}(self):
+	for ${2:item} in self:
+		if ${2:item}.${1:field} == ${3:some_value}:
+			raise ValueError(_('${4:message}') % ${2:item}.name)
+			#raise ValidationError(_('${4:message}') % ${2:item}.name)
+			#raise UserError(_('${4:message}'))
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9constraint</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

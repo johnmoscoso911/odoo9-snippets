@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+@api.onchange('${1:field1}', '${2:field2}')
+def onchange_${3:name}(self):
+	if self.${1:field1} and self.${2:field2}:
+		self.${4:field3} = ''
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9onchange</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

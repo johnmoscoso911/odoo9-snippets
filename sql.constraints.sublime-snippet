@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+_sql_constraints = [
+	('${1:code}_unique', 'unique(${1:code})', 'The ${1:code} must be unique'),
+]
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sql_constraint</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

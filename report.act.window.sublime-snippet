@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+<!--REPORT ACTION: ${2:Description}-->
+<record id="action_${1:class}" model="ir.actions.act_window">
+	<field name="name">${2:Description}</field>
+	<field name="res_model">${1/_/./g}</field>
+	<field name="view_type">form</field>
+	<field name="view_mode">graph,pivot</field>
+	<!--field name="search_view_id" ref="view_${1:class}_search"/-->
+	<field name="view_ids" 
+		eval="[(5, 0, 0),
+				(0, 0, {'view_mode': 'graph', 'view_id': ref('view_${1:class}_graph')}),
+				(0, 0, {'view_mode': 'pivot', 'view_id': ref('view_${1:class}_pivot')})]" />
+	<!--field name="context">{'search_default_today': True}</field-->
+	<!--field name="domain">[]</field-->
+	<!--field name="help" type="html">${3:Help}</field-->
+</record>
+<menuitem action="action_${1:class}"
+	id="menu_action_${1:class}"
+	parent="menu_${4:main}"
+	sequence="${5:10}" />
+<!--END REPORT ACTION + MENU-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>reportaction</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>

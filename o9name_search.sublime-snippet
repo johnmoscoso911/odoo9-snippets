@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+@api.model
+def name_search(self, name, args=None, operator='ilike', limit=100):
+	args = args or []
+	domain = []
+	if name:
+		domain = ['|', ('${1:code}', '=', name), ('${2:name}', operator, name)]
+		if operator in expression.NEGATIVE_TERM_OPERATORS:
+			domain = ['&'] + domain
+	${3:item} = self.search(expression.AND([domain, args]), limit=limit)
+	return ${3:item}.name_get()
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9name_search</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

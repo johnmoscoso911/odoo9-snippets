@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+from openerp import tools
+
+########## ########## ########## ########## ##########
+# ${3:description}
+########## ########## ########## ########## ##########
+class ${1:ClassName}(models.Model):
+	_name = '${2:class.name}'
+	_auto = False
+	_description = '${3:description}'
+	#_rec_name = 'id'
+
+	name = fields.Char(string='${4:Name}', size=${5:92}, readonly=True)
+	${6:field} = fields.Char(string='${7:Column}', size=${5:92}, readonly=True)
+	${8:m2ofield} = fields.Many2one('${9:related.class.name}', string='${10:M2O}', readonly=True)
+
+	def init(self, cr):
+		tools.drop_view_if_exists(cr, '${2/(\.)/_/g}')
+		cr.execute("""
+		CREATE OR REPLACE VIEW ${2/\./_/g} AS (
+			SELECT
+				row_number() over(order by name) AS id,
+				name,
+				${6:field},
+				${8:m2ofield}
+			FROM
+			WHERE
+		)""")
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9viewclass</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

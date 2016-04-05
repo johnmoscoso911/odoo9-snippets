@@ -1,0 +1,35 @@
+<snippet>
+	<content><![CDATA[
+@api.multi
+def ${1:action_button}(self):
+	context = dict(self._context or {})
+	active_model = context.get('active_model', False)
+	active_ids = context.get('active_ids', []) or []
+	records = self.env[active_model].browse(active_ids)
+	return self._${1:action_button}(records)
+
+@api.multi
+def _${1:action_button}(self, records):
+	for ${2:item} in self:
+		for record in records:
+			${2:item}._${3:function}(record)
+
+	menues = self.env['ir.model.data'].get_object_reference('${4:module}', '${5:menu}')
+	menu = menues[1] if len(menues) > 0 else False
+	return {
+		'type': 'ir.actions.client',
+		'tag': 'reload',
+		'params': {'menu_id': menu},
+	}
+
+@api.one
+def _${3:function}(self, record):
+	if state == '${6:value}':
+		raise UserError(_('${7:message}'))
+	return record.write({'${8:field}': False})
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9wizardaction</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+from openerp.osv import expression
+from openerp.exceptions import UserError, ValidationError
+from openerp import api, fields, models, _
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>o9import</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.python</scope>
+</snippet>

@@ -1,0 +1,73 @@
+<snippet>
+	<content><![CDATA[
+<!--TEMPLATE: ${4:title_or_description}-->
+<template id="report_${1:name}_document">
+	<t t-call="report.external_layout">
+		<t t-set="o" t-value="doc" />
+		<div class="page">
+			<!--div class="oe_structure" /-->
+			<div class="row">
+				<div class="col-xs-5 col-xs-offset-7">
+				</div>
+			</div>
+			<h2>
+				<span t-field="o.name" />
+			</h2>
+			<div class="row mt32 mb32">
+				<div class="col-xs-2" t-if="o.name">
+					<strong></strong>
+					<p t-field="o.name" />
+				</div>
+				<div class="col-xs-2" t-if="o.${5:field}">
+					<strong></strong>
+					<p t-field="o.${5:field}" />
+				</div>
+			</div>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="text-right"></th>
+					</tr>
+				</thead>
+				<tbody class="${2:module_name}_tbody">
+					<t t-foreach="o.${6:o2m}" t-as="d">
+						<tr t-if="d.name">
+							<td>
+								<span t-field="d." />
+							</td>
+							<td class="text-right">
+								<span t-field="d." />
+							</td>
+						</tr>
+					</t>
+				</tbody>
+			</table>
+			<!--div class="oe_structure" /-->
+		</div>
+	</t>
+</template>
+<template id="report_${1:name}">
+	<t t-call="report.html_container">
+		<t t-foreach="docs" t-as="doc">
+			<t t-call="${2:module_name}.report_${1:name}_document" />
+		</t>
+	</t>
+</template>
+<!--END TEMPLATE: ${4:title_or_description}-->
+<!--REPORT: ${4:title_or_description}-->
+<report
+	id="report_${3:model}"
+	string="${4:title_or_description}"
+	model="${3/_/./g}"
+	report_type="qweb-pdf"
+	file="${2:module_name}.report_${1:name}"
+	name="${2:module_name}.report_${1:name}"
+/>
+<!--END REPORT: ${4:title_or_description}-->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>templateview</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.xml</scope>
+</snippet>
